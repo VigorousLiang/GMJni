@@ -30,12 +30,14 @@ android {
     buildTypes {
         release {
             buildConfigField "boolean", "ANTI_DEBUG", "true"
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             buildConfigField "boolean", "ANTI_DEBUG", "false"
             signingConfig signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     externalNativeBuild {
