@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         IJniInterface.initJNIEnv(getApplicationContext());
+        IJniInterface.genAesId("111","2018");
         // Example of a call to a native method
         et = (EditText) findViewById(R.id.et_input);
         tvResult = (TextView) findViewById(R.id.tv_result);
