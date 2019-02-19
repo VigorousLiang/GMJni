@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    signingConfigs {
+        config {
+            keyAlias 'ff'
+            keyPassword '1234567'
+            storeFile file('/Users/vigorousliang/AndroidProject/jh_key/key.jks')
+            storePassword '1234567'
+        }
+    }
+    defaultConfig {
+        applicationId "com.guotai.dazhihui"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        externalNativeBuild {
+            ndk {
+                abiFilters 'armeabi','x86'
+            }
+            cmake {
+                arguments "-DANDROID_TOOLCHAIN=clang"
+                arguments "-DANDROID_PLATFORM=android-17"
+                arguments "-DANDROID_STL=stlport_static"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            buildConfigField "boolean", "ANTI_DEBUG", "true"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "boolean", "ANTI_DEBUG", "false"
+            signingConfig signingConfigs.config
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    buildToolsVersion '26.0.2'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+}

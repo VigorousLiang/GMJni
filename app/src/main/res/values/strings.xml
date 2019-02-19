@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">gmandroid</string>
+    <string name="str_sm3">sm3</string>
+    <string name="str_sm2_sign">sm2sign</string>
+    <string name="str_sm2_verify">sm2verify</string>
+    <string name="str_sm2_encrypt">sm2encrypt</string>
+    <string name="str_sm2_decrypt">sm2decrypt</string>
+    <string name="str_sm4_encrypt">sm4encrypt</string>
+    <string name="str_sm4_decrypt">sm4decrypt</string>
+</resources>
